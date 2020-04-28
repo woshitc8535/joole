@@ -100,13 +100,14 @@ public class ProjectController {
 
 
     @GetMapping("/deleteProductFromProject")
-    public ResponseEntity<?> deleteProductFromProject(@RequestParam(name = "projectId")Integer productId,
-                                                 @RequestParam(name = "productId")Integer projectId) {
+    public ResponseEntity<?> deleteProductFromProject(@RequestParam(name = "projectId")Integer projectId,
+                                                 @RequestParam(name = "productId")Integer productId) {
         Project project = projectService.findByProjectId(projectId);
         Product product = productService.findByProductId(productId);
-
-        ProductToProject productToProject = productToProjectService.deleteProductFromProject(product, project);
-        return new ResponseEntity<>(productToProject, HttpStatus.OK);
+        System.out.println(projectId);
+        System.out.println(productId);
+        productToProjectService.deleteProductFromProject(product, project);
+        return new ResponseEntity<>("DeleteProductToProject", HttpStatus.OK);
     }
 
 }

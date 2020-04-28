@@ -28,8 +28,8 @@ public class ProductToProjectServiceImp implements ProductToProjectService {
 
     @Transactional
     @Override
-    public ProductToProject deleteProductFromProject(Product product, Project project) {
-       return productToProjectRepository.deleteByProductAndProject(product, project).orElse(null);
+    public void deleteProductFromProject(Product product, Project project) {
+       productToProjectRepository.deleteByProductAndProject(product, project);
     }
 
     @Override

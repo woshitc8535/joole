@@ -10,7 +10,7 @@ import java.util.Optional;
 
 
 public interface ProductToProjectRepository extends JpaRepository<ProductToProject, Integer> {
-    Optional<ProductToProject> deleteByProductAndProject(Product product, Project project);
+    void deleteByProductAndProject(Product product, Project project);
 
     Optional<List<ProductToProject>>findByProject(Project project);
 
